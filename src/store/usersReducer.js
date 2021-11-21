@@ -1,19 +1,16 @@
 import {usersAPI} from "../api/usersApi";
 
 const SET_USERS = 'SET_USERS';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SET_CUR_PAGE = 'SET_CUR_PAGE';
-const SET_SEARCH_COUNTRIES = 'SET_SEARCH_COUNTRIES';
+const SET_SEARCH_USERS = 'SET_SEARCH_USERS';
 const DELETE_USER = 'DELETE_USER';
 
 const initialState = {
     users: null,
     currentPage: 1,
     limit: 5,
-    totalUsersCount: 0,
-    searchCountries: '',
+    searchUsers: '',
 }
-
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -27,15 +24,10 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 currentPage: action.currentPage
             }
-        case SET_TOTAL_USERS_COUNT:
+        case SET_SEARCH_USERS:
             return {
                 ...state,
-                totalUsersCount: action.totalUsersCount
-            }
-        case SET_SEARCH_COUNTRIES:
-            return {
-                ...state,
-                searchCountries: action.searchCountries
+                searchUsers: action.searchUsers
             }
         case DELETE_USER:
             return {
@@ -54,13 +46,6 @@ export const setUsers = (users) => {
     }
 }
 
-export const setTotalUsersCount = (totalUsersCount) => {
-    return {
-        type: SET_TOTAL_USERS_COUNT,
-        totalUsersCount: totalUsersCount,
-    }
-}
-
 export const setCurrentPage = (currentPage) => {
     return {
         type: SET_CUR_PAGE,
@@ -68,10 +53,10 @@ export const setCurrentPage = (currentPage) => {
     }
 }
 
-export const setSearchCountries = (value) => {
+export const setSearchUsers = (value) => {
     return {
-        type: SET_SEARCH_COUNTRIES,
-        searchCountries: value,
+        type: SET_SEARCH_USERS,
+        searchUsers: value,
     }
 }
 
@@ -85,9 +70,7 @@ export const deleteUserAC = (userId) => {
 export const setUsersThunk = () => {
     return (dispatch) => {
         usersAPI.getAllUsers().then(response => {
-            dispatch(setTotalUsersCount(response.data.length));
             dispatch(setUsers(response.data));
-            // debugger
         })
     }
 }

@@ -3,9 +3,8 @@ th {
 }
 
 td, th {
-    padding: 4px; /* Поля в ячейках */
+    padding: 0 4px; /* Поля в ячейках */
     width: 300px;
-    height: 50px;
     /*border: 1px solid black; !* Параметры рамки *!*/
 }
 tr{
@@ -22,8 +21,6 @@ tr{
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 15px 10px 1px rgba(0, 0, 0, .2);
-    /*padding-bottom: 50px;*/
-    /*margin-bottom: 100px;*/
 }
 
 .usersItems th{
@@ -37,7 +34,7 @@ tr{
 
 table{
     border-collapse: collapse;
-    border: 2px solid white; /* Прячем рамку вокруг таблицы */
+    border: 2px solid white;
     border-bottom: 1px solid black;
     height: 450px;
 }
