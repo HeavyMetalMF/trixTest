@@ -4,12 +4,14 @@ const SET_USERS = 'SET_USERS';
 const SET_CUR_PAGE = 'SET_CUR_PAGE';
 const SET_SEARCH_USERS = 'SET_SEARCH_USERS';
 const DELETE_USER = 'DELETE_USER';
+const SET_CLEAR_BUTTON = 'SET_CLEAR_BUTTON';
 
 const initialState = {
     users: null,
     currentPage: 1,
     limit: 5,
     searchUsers: '',
+    visibleClearButton: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.filter(u => u.id !== action.userId)
+            }
+        case SET_CLEAR_BUTTON:
+            return {
+                ...state,
+                visibleClearButton: action.visibleClearButton
             }
         default:
             return state;
@@ -64,6 +71,13 @@ export const deleteUserAC = (userId) => {
     return {
         type: DELETE_USER,
         userId: userId,
+    }
+}
+
+export const clearButtonAC = (value) => {
+    return {
+        type: SET_CLEAR_BUTTON,
+        visibleClearButton: value,
     }
 }
 

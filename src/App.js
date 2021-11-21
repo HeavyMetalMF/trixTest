@@ -12,7 +12,6 @@ function App(props) {
     }, []);
   return (
     <div className="App">
-        <Search/>
         <Users/>
     </div>
   );
