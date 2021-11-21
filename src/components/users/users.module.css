@@ -1,17 +1,19 @@
 th {
-    text-align: left; /* Выравнивание по левому краю */
+    text-align: left;
 }
 
 td, th {
     padding: 0 4px; /* Поля в ячейках */
     width: 300px;
-    /*border: 1px solid black; !* Параметры рамки *!*/
+    /*border-bottom: 1px solid black; !* Линия снизу *!*/
+
 }
 tr{
-    border: 1px solid black; /* Параметры рамки */
+    border: 0.5px solid black;
+    height: 60px;
 }
-.usersBlock{
-
+.line{
+    /*border-bottom: 1px solid #000;*/
 }
 
 .usersItems{
@@ -33,10 +35,12 @@ tr{
 }
 
 table{
+    /*border-collapse: separate;*/
     border-collapse: collapse;
+    border-spacing: 0 10px;
     border: 2px solid white;
-    border-bottom: 1px solid black;
-    height: 450px;
+    border-bottom: 0.5px solid black;
+    /*height: 450px;*/
 }
 
 .selectedPage{

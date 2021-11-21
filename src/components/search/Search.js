@@ -1,6 +1,6 @@
 import React from 'react';
 import c from './search.module.css';
-import {setSearchUsers, setUsers} from "../../store/usersReducer";
+import {clearButtonAC, setSearchUsers, setUsers} from "../../store/usersReducer";
 import {connect} from "react-redux";
 
 const Search = (props) => {
@@ -10,7 +10,7 @@ const Search = (props) => {
     const clear = () => {
         props.setSearchUsers('');
         props.setUsersForSort(props.users);
-        props.setVisibleClearButton(false);
+        props.clearButtonAC(false);
     }
 
     return (
@@ -30,7 +30,8 @@ const mapStateToProps = (state) => {
     return {
         searchUsers: state.usersPage.searchUsers,
         users: state.usersPage.users,
+        visibleClearButton: state.usersPage.visibleClearButton,
     }
 }
 
-export default connect(mapStateToProps, {setSearchUsers, setUsers})(Search)
+export default connect(mapStateToProps, {setSearchUsers, setUsers, clearButtonAC})(Search)

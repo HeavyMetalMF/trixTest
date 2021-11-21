@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import c from "./users.module.css";
-import Modal from "../modal/Modal";
 
 const User = (props) => {
-    const [activeModal, setActiveModal] = useState(false);
+
+    const showModal = (id) => {
+        props.setModalId(id);
+        props.setActiveModal(true)
+    }
 
     return (
         <tr align='left'>
@@ -11,10 +14,11 @@ const User = (props) => {
             <td>{props.email}</td>
             <td>{props.date}</td>
             <td>{props.rating}</td>
-            <td className={c.delete} onClick={() => {setActiveModal(true)}} >X</td>
-            <Modal id={props.id} deleteUser={props.deleteUser} activeModal={activeModal} setActiveModal={setActiveModal}/>
+            <td className={c.delete} onClick={() => {
+                showModal(props.id)
+            }}>X
+            </td>
         </tr>
-
     );
 };
 

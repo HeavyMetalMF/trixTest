@@ -1,6 +1,5 @@
 import './App.css';
-import Search from "./components/search/Search";
-import Users from "./components/users/Users";
+import UsersPage from "./components/users/UsersPage";
 import {useEffect} from "react";
 import {connect} from "react-redux";
 import {setUsersThunk} from "./store/usersReducer";
@@ -12,7 +11,7 @@ function App(props) {
     }, []);
   return (
     <div className="App">
-        <Users/>
+        <UsersPage/>
     </div>
   );
 }
